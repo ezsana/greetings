@@ -34,12 +34,12 @@ public class Greeting {
         return friendDetails;
     }
 
-    List<String[]> csvReader(String filePath) throws IOException {
+    private List<String[]> csvReader(String filePath) throws IOException {
         CSVReader reader = new CSVReader(new FileReader(filePath), ',', '"', 0);
         return reader.readAll();
     }
 
-    String askForInput() {
+    private String askForInput() {
         System.out.println("Enter date");
         return myObj.nextLine();
     }
