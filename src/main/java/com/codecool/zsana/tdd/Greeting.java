@@ -7,6 +7,9 @@ import java.util.*;
 
 public class Greeting {
 
+    private Scanner myObj = new Scanner(System.in);
+    private String filePath = "/home/zsana/Codecool/JAVA_ENTERPRISE/0th_week/tdd/greetings/src/main/resources/friends.csv";
+
     String greetingMessage(String firstName) {
         return "Subject: Happy birthday!\n" +
                 "\n" +
@@ -34,6 +37,21 @@ public class Greeting {
     List<String[]> csvReader(String filePath) throws IOException {
         CSVReader reader = new CSVReader(new FileReader(filePath), ',', '"', 0);
         return reader.readAll();
+    }
+
+    String askForInput() {
+        System.out.println("Enter date");
+        return myObj.nextLine();
+    }
+
+    public static void main(String[] args) throws IOException {
+        Greeting greeting = new Greeting();
+        String input = greeting.askForInput();
+        List<Map<String, String>> friendDetails = greeting.getFriendDetails(input, greeting.filePath);
+        for (int i = 0; i < friendDetails.size(); i++) {
+            String message = greeting.greetingMessage(friendDetails.get(i).get("firstName"));
+            System.out.println(message);
+        }
     }
 
 }
