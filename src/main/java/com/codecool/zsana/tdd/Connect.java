@@ -4,20 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- *
- * @author sqlitetutorial.net
- */
 public class Connect {
-    /**
-     * Connect to a sample database
-     */
+
     public static Connection connect() {
-        Connection conn = null;
+        Connection conn;
+
         try {
-            // db parameters
             String url = "";
-            // create a connection to the database
+
             conn = DriverManager.getConnection(url);
 
             System.out.println("Connection to SQLite has been established.");
