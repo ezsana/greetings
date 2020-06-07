@@ -28,14 +28,6 @@ class GreetingTest {
     }
 
     @Test
-    void smokeTest2() {
-        Connection connection = Connect.connect();
-        Assertions.assertNotNull(connection);
-        connection = Connect.closeConnection(connection);
-        Assertions.assertNull(connection);
-    }
-
-    @Test
     void greetingMessageTest() {
         String firstName = "Allen";
         String message = "Subject: Happy birthday!\n" +
@@ -56,7 +48,7 @@ class GreetingTest {
         Assertions.assertTrue(areMapListsEqual(details, greeting.getFriendDetails("1982/10/08", filePath)));
     }
 
-    private boolean areMapListsEqual(List<Map<String, String>> listMap1, List<Map<String, String>> listMap2) {
+    static boolean areMapListsEqual(List<Map<String, String>> listMap1, List<Map<String, String>> listMap2) {
         if (listMap1.size() != listMap2.size()) {
             return false;
         }
