@@ -45,6 +45,7 @@ public class Greeting {
     }
 
     public static void main(String[] args) throws IOException {
+        /*
         Greeting greeting = new Greeting();
         String input = greeting.askForInput();
         List<Map<String, String>> friendDetails = greeting.getFriendDetails(input, greeting.filePath);
@@ -52,6 +53,9 @@ public class Greeting {
             String message = greeting.greetingMessage(friendDetails.get(i).get("firstName"));
             System.out.println(message);
         }
+
+         */
+        Connect.connect();
     }
 
 }

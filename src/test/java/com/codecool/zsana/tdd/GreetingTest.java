@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,6 +15,7 @@ class GreetingTest {
 
     private Greeting greeting;
     private String filePath;
+
     @BeforeEach
     void setUp() {
         this.greeting = new Greeting();
@@ -23,6 +25,14 @@ class GreetingTest {
     @Test
     void smokeTest() {
         Assertions.assertNotNull(greeting);
+    }
+
+    @Test
+    void smokeTest2() {
+        Connection connection = Connect.connect();
+        Assertions.assertNotNull(connection);
+        connection = Connect.closeConnection(connection);
+        Assertions.assertNull(connection);
     }
 
     @Test
